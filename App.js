@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 
 import ProfileList from './profileList';
 import SearchBar from './searchBar';
@@ -60,17 +60,32 @@ class App extends React.Component {
   state = {
     profiles: [],
     currentProfileId: null,
+    profilesFromSearch: [],
   };
   async componentDidMount() {
     const profiles = DATA;
     this.setState({profiles});
   }
+  searchProfiles = searchTerm => {
+    let profilesFromSearch = [];
+    if (searchTerm) {
+      profilesFromSearch = this.state.profiles.filter(profile => {
+        const profileData = `${profile.name.toUpperCase()}`;
+        const searchData = searchTerm.toUpperCase();
+        return profileData.indexOf(searchData) > -1;
+      });
+      this.setState({profilesFromSearch});
+      console.log(profilesFromSearch);
+    } else {
+      this.setState({profilesFromSearch: []});
+    }
+  };
   setCurrentProfile = profileId => {
     this.setState({currentProfileId: profileId});
-    console.log(profileId);
   };
   unsetCurrentProfile = () => {
     this.setState({currentProfileId: null});
+    this.setState({profilesFromSearch: []});
   };
   currentProfile = () => {
     return this.state.profiles.find(
@@ -86,9 +101,25 @@ class App extends React.Component {
         />
       );
     }
+    // const profilesToDisplay =
+    //   this.state.profilesFromSearch.length > 0
+    //     ? this.state.profilesFromSearch
+    //     : this.state.profiles;
+    // console.log(profilesToDisplay);
+    if (this.state.profilesFromSearch.length > 0) {
+      return (
+        <View style={styles.main}>
+          <SearchBar searchProfiles={this.searchProfiles} />
+          <ProfileList
+            profiles={this.state.profilesFromSearch}
+            onItemPress={this.setCurrentProfile}
+          />
+        </View>
+      );
+    }
     return (
       <View style={styles.main}>
-        <SearchBar />
+        <SearchBar searchProfiles={this.searchProfiles} />
         <ProfileList
           profiles={this.state.profiles}
           onItemPress={this.setCurrentProfile}
@@ -101,6 +132,9 @@ const styles = StyleSheet.create({
   main: {
     marginTop: 80,
   },
-})
+  searchBar: {
+    marginTop: 80,
+  },
+});
 
 export default App;
