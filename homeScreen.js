@@ -6,6 +6,6 @@ import {View, Text} from 'react-native';
 
 export default class HomeScreen extends React.Component {
   render() {
-    return <ScreenName name="home" />;
+    return <ScreenName name="HomeScreen" />;
   }
 }
