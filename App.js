@@ -2,11 +2,14 @@ import React from 'react';
 
 import {View, StyleSheet, Text} from 'react-native';
 
-import AppNavigator from '../navigation/AppNavigatior';
+import Login from '../screens/loginScreen';
+import AppStack from '../navigation/appStack';
+import AuthNavigator from '../navigation/authNavigator';
+import BottomTabNavigator from '../navigation/bottomTabNavigator';
 
 class App extends React.Component {
   render() {
-    return <AppNavigator />;
+    return <AuthNavigator />;
   }
 }
 const styles = StyleSheet.create({
