@@ -1,5 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import firestore from '@react-native-firebase/firestore';
+import firebase from '@react-native-firebase/app';
 
 import {
   GoogleSignin,
@@ -15,7 +17,8 @@ export default class Login extends React.Component {
   };
   componentDidMount() {
     GoogleSignin.configure({
-      webClientId: '1032591718346-cb75m338v0in1cjkte9gjpihglenisqj.apps.googleusercontent.com', 
+      webClientId:
+        '1032591718346-cb75m338v0in1cjkte9gjpihglenisqj.apps.googleusercontent.com',
       offlineAccess: true, 
       hostedDomain: '', 
       forceConsentPrompt: true, 
@@ -27,8 +30,23 @@ export default class Login extends React.Component {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
       this.setState({userInfo: userInfo, loggedIn: true});
-      this.props.navigation.navigate('Main');
       console.log(userInfo);
+      const usersCollection = firestore().collection('users');
+      const usersRef = usersCollection.doc(userInfo.user.id);
+      usersRef.get().then(docSnapshot => {
+        if (docSnapshot.exists) {
+          this.props.navigation.navigate('MyProfile');
+        } else {
+          usersRef.set({
+            firstName: userInfo.user.givenName,
+            lastName: userInfo.user.familyName,
+            email: userInfo.user.email,
+            id: userInfo.user.id,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          });
+          this.props.navigation.navigate('MyProfile');
+        }
+      });
       // create a new firebase credential with the token
       const credential = auth.GoogleAuthProvider.credential(
         userInfo.idToken,
