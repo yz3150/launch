@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
 
 class ProfileDetails extends React.Component {
   static propTypes = {
@@ -19,6 +26,7 @@ class ProfileDetails extends React.Component {
         <TouchableOpacity onPress={this.props.onBack}>
           <Text>Back</Text>
         </TouchableOpacity>
+        <Text style={styles.title}>Discovery</Text>
         <View style={styles.profileCard}>
           <Image
             source={{
@@ -71,12 +79,12 @@ class ProfileDetails extends React.Component {
           </View>
         </View>
         <View>
-          <Text style={styles.title}>About</Text>
+          <Text style={styles.subtitle}>About</Text>
           <View style={styles.lineStyle} />
           <Text>{profile.about}</Text>
         </View>
         <View>
-          <Text style={styles.title}>Skills</Text>
+          <Text style={styles.subtitle}>Skills</Text>
           <View style={styles.lineStyle} />
           <TouchableOpacity>
             <View>
@@ -85,7 +93,7 @@ class ProfileDetails extends React.Component {
           </TouchableOpacity>
         </View>
         <View>
-          <Text style={styles.title}>Working Styles</Text>
+          <Text style={styles.subtitle}>Working Styles</Text>
           <View style={styles.lineStyle} />
           <TouchableOpacity>
             <View>
@@ -94,7 +102,7 @@ class ProfileDetails extends React.Component {
           </TouchableOpacity>
         </View>
         <View>
-          <Text style={styles.title}>Past Projects</Text>
+          <Text style={styles.subtitle}>Past Projects</Text>
           <View style={styles.lineStyle} />
           <TouchableOpacity>
             <View>
@@ -103,7 +111,7 @@ class ProfileDetails extends React.Component {
           </TouchableOpacity>
         </View>
         <View>
-          <Text style={styles.title}>Recommendations</Text>
+          <Text style={styles.subtitle}>Recommendations</Text>
           <View style={styles.lineStyle} />
           <TouchableOpacity>
             <View>
@@ -115,23 +123,51 @@ class ProfileDetails extends React.Component {
     );
   }
 }
+
+const width = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   container: {
-    marginTop: 80,
-    marginBottom: 5,
+    marginTop: 50,
+    marginHorizontal: 10,
+  },
+  title: {
+    fontSize: 34,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
   profileCard: {
+    marginTop: 5,
+    marginBottom: 5,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginHorizontal: 2,
+    backgroundColor: '#F7F5F9',
   },
   lineStyle: {
     borderBottomColor: '#ECEBED',
     borderBottomWidth: 1,
+    marginBottom: 15,
   },
   image: {
     width: '20%',
-    height: 100,
+    height: 80,
+    marginVertical: 5,
+    marginHorizontal: 5,
+  },
+  interests: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    marginTop: 5,
+  },
+  interaction: {
+    flexDirection: 'row',
+    marginTop: 5,
+  },
+  chat: {
+    marginLeft: 5,
   },
   info: {
     flex: 1,
@@ -140,22 +176,19 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
   },
-  interests: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
-  interaction: {
-    flexDirection: 'row',
-  },
   name: {
+    fontSize: 0.05 * width,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginVertical: 10,
   },
-  title: {
+  school: {
+    marginBottom: 10,
+  },
+  subtitle: {
     fontWeight: 'bold',
-    fontSize: 16,
-  }
+    fontSize: 17,
+    marginTop: 20,
+  },
 });
 
 export default ProfileDetails;

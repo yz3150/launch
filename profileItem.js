@@ -12,7 +12,7 @@ import {
 
 class ProfileItem extends React.Component {
   static propTypes = {
-    profile: PropTypes.object.isRequired,
+    profile: PropTypes.array.isRequired,
     onPress: PropTypes.func.isRequired,
   };
   handlePress = () => {
@@ -86,10 +86,14 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginHorizontal: 2,
+    backgroundColor: '#F7F5F9',
   },
   image: {
     width: '20%',
-    height: 100,
+    height: 80,
+    marginVertical: 5,
+    marginHorizontal: 5,
   },
   info: {
     flex: 1,
@@ -102,14 +106,22 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'flex-start',
+    marginTop: 5,
   },
   interaction: {
     flexDirection: 'row',
+    marginTop: 5,
+  },
+  chat: {
+    marginLeft: 5,
   },
   name: {
     fontSize: 0.05 * width,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginVertical: 10,
+  },
+  school: {
+    marginBottom: 10,
   },
 });
 

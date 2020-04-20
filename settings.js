@@ -7,8 +7,8 @@ export default class Settings extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Settings</Text>
-        <TouchableOpacity>
+        <Text style={styles.title}>Settings</Text>
+        <TouchableOpacity style={styles.imageContainer}>
           <Image
             source={{
               uri:
@@ -19,23 +19,23 @@ export default class Settings extends React.Component {
         </TouchableOpacity>
         <TouchableOpacity>
           <View style={styles.lineStyle} />
-          <Text>Notification Settings</Text>
+          <Text style={styles.subtitle}>Notification Settings</Text>
           <View style={styles.lineStyle} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text>My Coupons</Text>
+          <Text style={styles.subtitle}>My Coupons</Text>
           <View style={styles.lineStyle} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text>Legal & Terms</Text>
+          <Text style={styles.subtitle}>Legal & Terms</Text>
           <View style={styles.lineStyle} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text>Support & Help</Text>
+          <Text style={styles.subtitle}>Support & Help</Text>
           <View style={styles.lineStyle} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text>Log out</Text>
+          <Text style={styles.subtitle}>Log out</Text>
           <View style={styles.lineStyle} />
         </TouchableOpacity>
       </View>
@@ -46,13 +46,29 @@ export default class Settings extends React.Component {
 const styles = StyleSheet.create({
   container: {
     marginTop: 50,
+    marginHorizontal: 5,
+  },
+  title: {
+    fontSize: 34,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 30,
+  },
+  subtitle: {
+    fontSize: 17,
+  },
+  imageContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
   },
   image: {
     width: '20%',
-    height: 100,
+    height: 80,
   },
   lineStyle: {
     borderBottomColor: '#ECEBED',
     borderBottomWidth: 1,
+    marginVertical: 15,
   },
 });

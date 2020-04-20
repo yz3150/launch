@@ -108,6 +108,7 @@ export default class Profile extends React.Component {
     if (profilesToDisplay.length > 0) {
       return (
         <View style={styles.main}>
+          <Text style={styles.title}>Discovery</Text>
           <SearchBar searchProfiles={this.searchProfiles} />
           <ProfileList
             profiles={profilesToDisplay}
@@ -125,9 +126,12 @@ export default class Profile extends React.Component {
 }
 const styles = StyleSheet.create({
   main: {
-    marginTop: 80,
+    marginTop: 50,
   },
-  searchBar: {
-    marginTop: 80,
+  title: {
+    fontSize: 34,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
 });
