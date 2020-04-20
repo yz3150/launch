@@ -30,10 +30,5 @@ export default function AuthNavigator() {
   if (initializing) {
     return null;
   }
-
-  return user ? (
-    <AppStack />
-  ) : (
-    <SignOutStack />
-  );
+  return user ? <AppStack /> : <SignOutStack />;
 }

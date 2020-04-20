@@ -9,7 +9,7 @@ import BottomTabNavigator from '../navigation/bottomTabNavigator';
 
 class App extends React.Component {
   render() {
-    return <AuthNavigator />;
+    return <AppStack />;
   }
 }
 const styles = StyleSheet.create({
