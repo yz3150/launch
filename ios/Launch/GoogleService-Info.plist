@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1032591718346-cb75m338v0in1cjkte9gjpihglenisqj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1032591718346-cb75m338v0in1cjkte9gjpihglenisqj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCkr3P_1Hdv_8JT2OsLQObsyuPjrBfqokM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1032591718346</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.Launch</string>
+	<key>PROJECT_ID</key>
+	<string>launch-mobile</string>
+	<key>STORAGE_BUCKET</key>
+	<string>launch-mobile.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1032591718346:ios:9a142b1414290b33b70133</string>
+	<key>DATABASE_URL</key>
+	<string>https://launch-mobile.firebaseio.com</string>
+</dict>
+</plist>
