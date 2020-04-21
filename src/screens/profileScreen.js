@@ -9,3 +9,4 @@ export default class ProfileScreen extends React.Component {
     return <Profile />;
   }
 }
+

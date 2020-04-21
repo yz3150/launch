@@ -1,14 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-
+import auth from '@react-native-firebase/auth';
 export default class Home extends React.Component {
+  static propTypes = {
+    userInfo: PropTypes.object.isRequired,
+  };
   render() {
     return (
       <View style={styles.container}>
         <View>
           <TouchableOpacity>
-            <Text style={styles.title}>Hi, name</Text>
+            <Text style={styles.title}>Hi, Yanting</Text>
           </TouchableOpacity>
           <View style={styles.message}>
             <TouchableOpacity>

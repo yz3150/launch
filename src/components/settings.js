@@ -34,7 +34,7 @@ export default class Settings extends React.Component {
           <Text style={styles.subtitle}>Support & Help</Text>
           <View style={styles.lineStyle} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.handleLogout}>
           <Text style={styles.subtitle}>Log out</Text>
           <View style={styles.lineStyle} />
         </TouchableOpacity>

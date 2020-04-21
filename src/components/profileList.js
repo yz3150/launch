@@ -25,9 +25,13 @@ class ProfileList extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  list: {
-    backgroundColor: '#F7F5F9',
+  container: {
+    marginTop: 50,
+    marginHorizontal: 10,
   },
+  // list: {
+  //   backgroundColor: '#F7F5F9',
+  // },
 });
 
 export default ProfileList;
