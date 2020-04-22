@@ -9,7 +9,31 @@ import {
   StyleSheet,
 } from 'react-native';
 
-export default class MyProfile extends React.Component {
+import {connect} from 'react-redux';
+import {createProfile} from '../redux/actions/profileAction';
+
+class MyProfile extends React.Component {
+  state = {
+    school: '',
+    aboutMe: '',
+  }
+handleSchool = (text) => {
+  console.log(text);
+  this.setState({
+    school:text
+  })
+}
+handleAboutMe = (text) => {
+  console.log(text);
+  this.setState({
+    aboutMe: text
+  })
+}
+handlePress = (e) => {
+  e.preventDefault();
+  this.props.createProfile(this.state);
+  console.log(e);
+}
   render() {
     return (
       <View style={styles.container}>
@@ -25,9 +49,9 @@ export default class MyProfile extends React.Component {
             <Text>Name: </Text>
             <TextInput />
             <Text>School: </Text>
-            <TextInput />
+            <TextInput id='school' onChangeText={this.handleSchool} />
             <Text>About me: </Text>
-            <TextInput />
+            <TextInput id='aboutMe' onChangeText={this.handleAboutMe}/>
           </View>
         </View>
         <View>
@@ -48,7 +72,7 @@ export default class MyProfile extends React.Component {
         <View>
           <Text style={styles.subtitle}>Recommendations</Text>
         </View>
-        <Button title="Create" />
+        <Button title="Create" onPress={this.handlePress}/>
       </View>
     );
   }
@@ -76,3 +100,11 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
 })
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createProfile: (profile) => dispatch(createProfile(profile)),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(MyProfile);

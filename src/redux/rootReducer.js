@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import posts from './reducers/posts';
+import profileReducer from './reducers/profileReducer';
 
 const rootReducer = combineReducers({
-  posts: posts,
+  profileReducer: profileReducer,
 });
 
 export default rootReducer;

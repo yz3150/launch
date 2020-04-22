@@ -4,9 +4,15 @@ import thunk from 'redux-thunk';
 import freeze from 'redux-freeze';
 import _ from 'lodash';
 import rootReducer from './rootReducer';
+// import {reduxFirestore, getFirestore} from 'redux-firestore';
+// import {reactReduxFirebase, getFirebase} from 'react-redux-firebase';
 
 const logger = createLogger();
-const middlewares = _.compact([thunk, freeze, logger]);
+const middlewares = _.compact([
+  thunk, 
+  freeze, 
+  logger,
+]);
 const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
 const store = createStoreWithMiddleware(rootReducer);
 

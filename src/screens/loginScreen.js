@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import firebase from '@react-native-firebase/app';
+import {connect} from 'react-redux';
 
 import {
   GoogleSignin,
